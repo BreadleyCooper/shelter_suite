@@ -15,7 +15,7 @@ export default function SignIn() {
                             <label className="label">
                                 <span className="label-text">Email Address</span>
                             </label>
-                            <input type="text" placeholder="Email" className="input input-bordered w-full max-w-xs" />
+                            <input type="email" placeholder="Email" className="input input-bordered w-full max-w-xs" />
                             
                         </div>
                         {/* Password Input */}
@@ -23,12 +23,13 @@ export default function SignIn() {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="Password" className="input input-bordered w-full max-w-xs" />
+                            <input type="password" placeholder="Password" className="input input-bordered w-full max-w-xs" />
                         </div>
                         <div className="card-actions">
                             <button className="btn btn-primary my-5 justify-self-center">Sign In</button>
                         </div>
                     </form>
+                    <a className="font-normal hover:font-bold" href="">Forgot Password?</a>
                 </div>
             </div>
         </div>
