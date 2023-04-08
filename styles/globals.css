@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body { 
+    min-height: 100vh; 
+    background-color: rgb(42,48,60);
+}
+#__next {
+    min-height: 100vh;
+}
+
+.parentDiv {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+   
+}
