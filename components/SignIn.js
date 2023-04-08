@@ -6,9 +6,9 @@ export default function SignIn() {
             <div className="card w-96 bg-base-100 shadow-xl max-h-fit">
                 
                 <div className="card-body items-center text-center">
-                <h2 className="card-title">Welcome to Shelter Suite,</h2>
+                <h2 className="card-title">Welcome to Shelter Suite.</h2>
 
-                    <h2 className="card-title">please sign in to your account:</h2>
+                    <h2 className="card-title font-bold">Sign in to your account:</h2>
                     {/* Email Address Input */}
                     <form className="min-w-full flex flex-col items-center">
                         <div className="form-control w-full max-w-xs">
