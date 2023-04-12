@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Filter() {
     return (
-        <div className="filterContainer flex justify-evenly">
+        <div className="filterContainer flex justify-evenly my-6">
             <select className="select max-w-xs flex flex-inital">
                 <option disabled selected>Area</option>
                 <option>London</option>
@@ -17,13 +17,10 @@ export default function Filter() {
             </select>
 
             <select className="select max-w-xs flex flex-inital">
-                <option disabled selected>Filter</option>
-                <option>Example</option>
-                <option>Example</option>
-                <option>Example</option>
-                <option>Example</option>
-                <option>Example</option>
-                <option>Example</option>
+                <option disabled selected>Status</option>
+                <option>New</option>
+                <option>Closed</option>
+
             </select>
 
             <select className="select min-w-fit max-w-xs flex flex-inital">
