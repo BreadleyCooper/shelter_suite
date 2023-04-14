@@ -1,0 +1,28 @@
+.personDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    margin-bottom: 8rem;
+}
+
+.dogDetails1 {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    margin-bottom: 8rem;
+}
+
+.dogHealth {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    margin-bottom: 8rem;
+}
+
+.moreDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap:1rem;
+    margin-bottom: 5rem;
+}
