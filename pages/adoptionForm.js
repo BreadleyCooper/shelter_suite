@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../components/componentStyles/adoptionForm.module.css"
+import { useRef } from "react"
 
 import { collection, addDoc } from "firebase/firestore";
 import {doc , setDoc} from "firebase/firestore"
@@ -11,130 +12,126 @@ const dbInstance = collection(db, "adoptionApplications")
 
 export default function AdoptionForm() {
 
-    async function saveTest (e){
-        e.preventDefault()
-        try{
-            setDoc(doc(db, "adoptionApplications", "test"),{
-                test:test
-            })
-        }catch (error) {
-            console.log(error)
-        }
-    }
-    
+    const form = useRef(null)
+
+
     async function saveApplication(e) {
-        e.preventDefault()
-        try{
-        addDoc(dbInstance, {
-            firstName: firstName,
-            lastName : lastName,
-            address: address,
-            addressLine1: addressLine1,
-            county: county,
-            postCode: postCode,
-            area : area,
-            email:email,
-            phone:phone,
-            dogName:dogName,
-            reasonForRehome : reasonForRehome,
-            sex:sex,
-            age:age,
-            colour:colour,
-            registeredOwner:registeredOwner,
-            notRegisteredOwnerDetails:notRegisteredOwnerDetails,
-            neutered:neutered,
-            size:size,
-            type:type,
-            microChip:microChip,
-            kcName:kcName,
-            kcNumber: kcNumber,
-            breeder : breeder,
-            breederContacted:breederContacted,
-            vaccinated:vaccinated,
-            praStatus:praStatus,
-            laforasStatus:laforasStatus,
-            existingHealthConditions:existingHealthConditions,
-            healthDetails:healthDetails,
-            houseTrained:houseTrained,
-            travelSick:travelSick,
-            usedToCats:usedToCats,
-            usedToGarden:usedToGarden,
-            usedToChildren:usedToChildren,
-            usedToOtherDogs:usedToOtherDogs,
-            gaurdsFoodOrToys:gaurdsFoodOrToys,
-            digsHoles:digsHoles,
-            noisy:noisy,
-            walksOnLead:walksOnLead,
-            comesWhenCalled:comesWhenCalled,
-            crateTrained: crateTrained,
-            escapeArtist:escapeArtist,
-            everBitten:everBitten,
-            bittenDetails:bittenDetails,
-            otherPets:otherPets,
-            afraid:afraid,
-            afraidDetails:afraidDetails,
-            vetPermission:vetPermission,
-            otherDetails:otherDetails
+        if (form.current.checkValidity()) {
+            e.preventDefault()
+            setButtonDisabled(true)
+            try{
+            addDoc(dbInstance, {
+                firstName: firstName,
+                lastName : lastName,
+                address: address,
+                addressLine1: addressLine1,
+                county: county,
+                postCode: postCode,
+                area : area,
+                email:email,
+                phone:phone,
+                dogName:dogName,
+                reasonForRehome : reasonForRehome,
+                sex:sex,
+                age:age,
+                colour:colour,
+                registeredOwner:registeredOwner,
+                notRegisteredOwnerDetails:notRegisteredOwnerDetails,
+                neutered:neutered,
+                size:size,
+                type:type,
+                microChip:microChip,
+                kcName:kcName,
+                kcNumber: kcNumber,
+                breeder : breeder,
+                breederContacted:breederContacted,
+                vaccinated:vaccinated,
+                praStatus:praStatus,
+                laforasStatus:laforasStatus,
+                existingHealthConditions:existingHealthConditions,
+                healthDetails:healthDetails,
+                houseTrained:houseTrained,
+                travelSick:travelSick,
+                usedToCats:usedToCats,
+                usedToGarden:usedToGarden,
+                usedToChildren:usedToChildren,
+                usedToOtherDogs:usedToOtherDogs,
+                gaurdsFoodOrToys:gaurdsFoodOrToys,
+                digsHoles:digsHoles,
+                noisy:noisy,
+                walksOnLead:walksOnLead,
+                comesWhenCalled:comesWhenCalled,
+                crateTrained: crateTrained,
+                escapeArtist:escapeArtist,
+                everBitten:everBitten,
+                bittenDetails:bittenDetails,
+                otherPets:otherPets,
+                afraid:afraid,
+                afraidDetails:afraidDetails,
+                vetPermission:vetPermission,
+                otherDetails:otherDetails
 
-        })
-        }catch(error) {
-            console.log(error)
+            })
+            }catch(error) {
+                console.log(error)
+                setButtonDisabled(false)
+            }
         }
     }
 
 
-    const [test, setTest] = React.useState()
 
-    const [firstName, setFirstName] = React.useState()
-    const [lastName, setLastName] = React.useState()
-    const [address, setAddress] = React.useState()
-    const [addressLine1, setAddressLine2] = React.useState()
-    const [county, setCounty] = React.useState()
-    const [postCode, setPostCode] = React.useState()
-    const [area, setArea] = React.useState()
-    const [email, setEmail] = React.useState()
-    const [phone, setPhone] = React.useState()
-    const [dogName, setDogName] = React.useState()
-    const [reasonForRehome, setReasonForRehome] = React.useState()
-    const [sex, setSex] = React.useState()
-    const [age, setAge] = React.useState()
-    const [colour, setColour] = React.useState()
-    const [registeredOwner, setRegisteredOwner] = React.useState()
-    const [notRegisteredOwnerDetails, setNotRegisteredOwnerDetails] = React.useState()
-    const [neutered, setNeutered] = React.useState()
-    const [size, setSize] = React.useState()
-    const [type, setType] = React.useState()
-    const [microChip, setMicroChip] = React.useState()
-    const [kcName, setKCName] = React.useState()
-    const [kcNumber, setKCNumber] = React.useState()
-    const [breeder, setBreeder] = React.useState()
-    const [breederContacted, setBreederContacted] = React.useState()
-    const [vaccinated, setVaccinated] = React.useState()
-    const [praStatus, setPRAStatus] = React.useState()
-    const [laforasStatus, setLaforasStatus] = React.useState()
-    const [existingHealthConditions, setExistingHealthConditions] = React.useState()
-    const [healthDetails, setHealthDetails] = React.useState()
-    const [houseTrained, setHouseTrained] = React.useState()
-    const [travelSick, setTravelSick] = React.useState()
-    const [usedToCats, setUsedToCats] = React.useState()
-    const [usedToGarden, setUsedToGarden] = React.useState()
-    const [usedToChildren, setUsedToChildren] = React.useState()
-    const [usedToOtherDogs, setUsedToOtherDogs] = React.useState()
-    const [gaurdsFoodOrToys, setGuardsFoodOrToys] = React.useState()
-    const [digsHoles, setDigsHoles] = React.useState()
-    const [noisy, setNoisy] = React.useState()
-    const [walksOnLead, setWalksOnLead] = React.useState()
-    const [comesWhenCalled, setComesWhenCalled] = React.useState()
-    const [crateTrained, setCrateTrained] = React.useState()
-    const [escapeArtist, setEscapeArtist] = React.useState()
-    const [everBitten, setEverBitten] = React.useState()
-    const [bittenDetails, setBittenDetails] = React.useState()
-    const [otherPets, setOtherPets] = React.useState()
-    const [afraid, setAfraid] = React.useState()
-    const [afraidDetails, setAfraidDetails] = React.useState()
-    const [vetPermission, setVetPermission] = React.useState()
-    const [otherDetails, setOtherDetails] = React.useState()
+    const [firstName, setFirstName] = React.useState("")
+    const [lastName, setLastName] = React.useState("")
+    const [address, setAddress] = React.useState("")
+    const [addressLine1, setAddressLine2] = React.useState("")
+    const [county, setCounty] = React.useState("")
+    const [postCode, setPostCode] = React.useState("")
+    const [area, setArea] = React.useState("")
+    const [email, setEmail] = React.useState("")
+    const [phone, setPhone] = React.useState("")
+    const [dogName, setDogName] = React.useState("")
+    const [reasonForRehome, setReasonForRehome] = React.useState("")
+    const [sex, setSex] = React.useState("")
+    const [age, setAge] = React.useState("")
+    const [colour, setColour] = React.useState("")
+    const [registeredOwner, setRegisteredOwner] = React.useState("")
+    const [notRegisteredOwnerDetails, setNotRegisteredOwnerDetails] = React.useState("")
+    const [neutered, setNeutered] = React.useState("")
+    const [size, setSize] = React.useState("")
+    const [type, setType] = React.useState("")
+    const [microChip, setMicroChip] = React.useState("")
+    const [kcName, setKCName] = React.useState("")
+    const [kcNumber, setKCNumber] = React.useState("")
+    const [breeder, setBreeder] = React.useState("")
+    const [breederContacted, setBreederContacted] = React.useState("")
+    const [vaccinated, setVaccinated] = React.useState("")
+    const [praStatus, setPRAStatus] = React.useState("")
+    const [laforasStatus, setLaforasStatus] = React.useState("")
+    const [existingHealthConditions, setExistingHealthConditions] = React.useState("")
+    const [healthDetails, setHealthDetails] = React.useState("")
+    const [houseTrained, setHouseTrained] = React.useState("")
+    const [travelSick, setTravelSick] = React.useState("")
+    const [usedToCats, setUsedToCats] = React.useState("")
+    const [usedToGarden, setUsedToGarden] = React.useState("")
+    const [usedToChildren, setUsedToChildren] = React.useState("")
+    const [usedToOtherDogs, setUsedToOtherDogs] = React.useState("")
+    const [gaurdsFoodOrToys, setGuardsFoodOrToys] = React.useState("")
+    const [digsHoles, setDigsHoles] = React.useState("")
+    const [noisy, setNoisy] = React.useState("")
+    const [walksOnLead, setWalksOnLead] = React.useState("")
+    const [comesWhenCalled, setComesWhenCalled] = React.useState("")
+    const [crateTrained, setCrateTrained] = React.useState("")
+    const [escapeArtist, setEscapeArtist] = React.useState("")
+    const [everBitten, setEverBitten] = React.useState("")
+    const [bittenDetails, setBittenDetails] = React.useState("")
+    const [otherPets, setOtherPets] = React.useState("")
+    const [afraid, setAfraid] = React.useState("")
+    const [afraidDetails, setAfraidDetails] = React.useState("")
+    const [vetPermission, setVetPermission] = React.useState("")
+    const [otherDetails, setOtherDetails] = React.useState("")
 
+    const [buttonDisabled, setButtonDisabled] = React.useState(false)
     
 
     return (
@@ -149,19 +146,7 @@ export default function AdoptionForm() {
             <div className="text-primary-content font-bold">Fields marked * are required</div>
             <h1 className="text-primary-content py-10 font-bold text-lg ">Your Details</h1>
 
-            <form>
-            <div className="firstName form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="text-primary-content label-text">Test *</span>
-                    </label>
-                    <input onChange={e => setTest(e.target.value)} id="lastName" type="text" placeholder="First Name" required maxLength={30} className="input input-bordered w-full max-w-xs" />
-                </div>
-
-                <button onClick={saveTest} className="btn">TEST</button>
-
-            </form>
-
-            <form className="grid">
+            <form ref={form} className="grid">
 
                 {/* Person Details Section */}
                 <div className={styles.personDetails}>
@@ -199,7 +184,8 @@ export default function AdoptionForm() {
                     <label className="label">
                         <span className="text-primary-content label-text">County *</span>
                     </label>
-                    <select onChange={e => setCounty(e.target.value)} defaultValue={"Select County"} name="county" id="county" required className="select select-bordered">
+                    <select onChange={e => setCounty(e.target.value)} defaultValue={""} name="county" id="county" required className="select select-bordered">
+                        <option value="" disabled>Select county</option>
                         <option>Aberdeenshire</option>
                         <option>Anglesey</option>
                         <option>Angus</option>
@@ -318,7 +304,8 @@ export default function AdoptionForm() {
                     <label className="label">
                         <span className="text-primary-content label-text">Area *</span>
                     </label>
-                    <select onChange={e => setArea(e.target.value)} defaultValue={"Select Area"} id="area" name="area" required className="select select-bordered">
+                    <select onChange={e => setArea(e.target.value)} defaultValue={""} id="area" name="area" required className="select select-bordered">
+                        <option value={""} disabled>Select an Area</option>
                         <option>London</option>
                         <option>South East</option>
                         <option>East of England</option>
@@ -982,7 +969,7 @@ export default function AdoptionForm() {
                     </div>
                 </div>
 
-                <button onClick={saveApplication} className="btn btn-primary mb-20 max-w-xs min-w-[50%] justify-self-end">Submit</button>
+                <button disabled={buttonDisabled} onClick={saveApplication} className="btn btn-primary mb-20 max-w-xs min-w-[50%] justify-self-end">Submit</button>
 
             </form>
 
