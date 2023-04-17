@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { collection, addDoc } from "firebase/firestore";
 import {doc , setDoc} from "firebase/firestore"
 import { db } from "@/firebaseConfig";
+import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
 
 const dbInstance = collection(db, "adoptionApplications")
 
@@ -70,8 +71,8 @@ export default function AdoptionForm() {
                 afraidDetails:afraidDetails,
                 vetPermission:vetPermission,
                 otherDetails:otherDetails
-
             })
+            setSubmitted(true)
             }catch(error) {
                 console.log(error)
                 setButtonDisabled(false)
@@ -132,11 +133,25 @@ export default function AdoptionForm() {
     const [otherDetails, setOtherDetails] = React.useState("")
 
     const [buttonDisabled, setButtonDisabled] = React.useState(false)
+    const [submitted, setSubmitted] = React.useState(false)
+
+    if (submitted) {
+        return (<FormSubmissionSuccess 
+            cardTitle="Application Submitted"
+            cardDescription="You will recieve an e-mail confirmation of your application soon. We will contact you when your application has been reviewed"
+            buttonText="Back To Home Page"
+        />)
+    } else {
+
+    
     
 
     return (
+
+        
         
         <div className="formContainer mx-10 max-w-7xl grid">
+            
             <h1 className="text-primary-content py-5 font-bold text-lg ">Dachshund Rescue - Re-Homing Request Form</h1>
             <div className="text-primary-content py-5">
             If you are considering rehoming a Dachshund, please complete the form below with as much detail as possible to help us to identify the perfect home for your dachshund. Once we receive this, your Dachshund Rescue Coordinator can begin to look for a suitable new home. We will be in touch shortly to guide you through the next steps.
@@ -979,4 +994,4 @@ export default function AdoptionForm() {
 
 
     )
-}
+}}
