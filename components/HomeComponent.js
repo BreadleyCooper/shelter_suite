@@ -9,22 +9,27 @@ export default function HomeComponent() {
             <MenuCard cardTitle="Matches"
                       cardDescription="Check for new matches"
                       buttonText = "Enter" 
+                      linkLocation="/matches"
             />
             <MenuCard cardTitle="Fosterer Applications"
                       cardDescription="Review all fosterer applications"
                       buttonText = "Enter" 
+                      linkLocation="/"
             />
             <MenuCard cardTitle="Adoption Applications"
                       cardDescription="Review all adoption applications"
-                      buttonText = "Enter" 
+                      buttonText = "Enter"
+                      linkLocation="/adoptionApplications"
             />
             <MenuCard cardTitle="Adoptee Applications"
                       cardDescription="Review all adotpee applications"
                       buttonText = "Enter" 
+                      linkLocation="/"
             />
             <MenuCard cardTitle="Add New Entity"
                       cardDescription="Manually add a new person or animal"
-                      buttonText = "Enter"  
+                      buttonText = "Enter"
+                      linkLocation="/"  
             />
         </div>
     )
