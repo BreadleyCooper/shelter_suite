@@ -11,7 +11,7 @@ export default function FormSubmissionSuccess(props) {
                     <h2 className="card-title">{cardTitle}</h2>
                     <p>{cardDescription}</p>
                     <div className="card-actions justify-end">
-                    <button className="btn btn-primary">{buttonText}</button>
+                    <button onClick={() => { window.location.href = "https://dachshundrescue.org.uk/"; }} className="btn btn-primary">{buttonText}</button>
                     </div>
                 </div>
             </div>

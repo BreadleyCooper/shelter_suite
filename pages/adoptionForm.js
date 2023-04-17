@@ -6,6 +6,7 @@ import { collection, addDoc } from "firebase/firestore";
 import {doc , setDoc} from "firebase/firestore"
 import { db } from "@/firebaseConfig";
 import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
+import Link from "next/link";
 
 const dbInstance = collection(db, "adoptionApplications")
 
@@ -965,7 +966,7 @@ export default function AdoptionForm() {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="text-primary-content label-text">If there is any other relevent information, give details *</span>
+                        <span className="text-primary-content label-text">If there is any other relevent information, give details</span>
                     </label>
                     <textarea onChange={e => setOtherDetails(e.target.value)} id="otherDetails" maxLength={1000} className="textarea textarea-bordered h-24" placeholder="1000 characters maximum"></textarea>
                 </div>
@@ -983,8 +984,9 @@ export default function AdoptionForm() {
                     </label>
                     </div>
                 </div>
-
+                
                 <button disabled={buttonDisabled} onClick={saveApplication} className="btn btn-primary mb-20 max-w-xs min-w-[50%] justify-self-end">Submit</button>
+                
 
             </form>
 
