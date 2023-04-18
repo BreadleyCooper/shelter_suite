@@ -12,7 +12,6 @@ export default function MenuCard(props) {
             <p>{cardDescription}</p>
             <div className="card-actions justify-end">
             <Link href={`${linkLocation}`}><button className="btn btn-primary" >{buttonText}</button></Link>
-            
         </div>
     </div>
     </div>
