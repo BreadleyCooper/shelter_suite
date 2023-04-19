@@ -5,23 +5,31 @@ import Filter from "@/components/Filter"
 import { db } from "@/firebaseConfig"
 import { useEffect } from "react"
 
-import { collection, getDocs } from "firebase/firestore"
+import { collection, doc, getDocs } from "firebase/firestore"
 
 
 export default function AdoptionApplications() {
 
-    const [applications, SetApplications] = React.useState([])
+    const [applications, setApplications] = React.useState([])
+        
 
     
-    useEffect(()=> {
+    useEffect(()=> 
+        {
         const fetchApplications = async () => {
+            
     
-            try { 
-                const querySnapshot = await getDocs(collection(db, "adoptionApplications"))
-                querySnapshot.forEach((doc) => {SetApplications([...applications,doc.data()])})
-                
-            }catch(e) {console.log(e)}
-        }
+            try {
+                const querySnapshot = await getDocs(collection(db, "adoptionApplications"));
+                const newData = [];
+                querySnapshot.forEach((doc) => {
+                    newData.push({...doc.data(), id: doc.id});
+                });
+                setApplications(newData);
+            } catch(e) {
+                console.log(e);
+            }
+        };
         fetchApplications();
         
     }, [])
@@ -33,7 +41,17 @@ export default function AdoptionApplications() {
             
             <Filter />
             <div className="divider before:bg-accent after:bg-accent text-accent">New Applications</div>
-            <AdoptionApplicationsCollapse />
+
+            {
+            applications.map((application) => {
+                return <AdoptionApplicationsCollapse 
+                            key={application.id}
+                            applicantName={application.firstName + " " + application.lastName} 
+                            dogName={application.dogName}                             
+                        />
+            })}
+
+            
             <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
 
         </div>
