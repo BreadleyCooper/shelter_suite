@@ -3,6 +3,7 @@ import styles from "../components/componentStyles/adoptionForm.module.css"
 import { useRef } from "react"
 
 import { collection, addDoc } from "firebase/firestore";
+import { serverTimestamp } from "firebase/firestore";
 import {doc , setDoc} from "firebase/firestore"
 import { db } from "@/firebaseConfig";
 import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
@@ -15,6 +16,11 @@ const dbInstance = collection(db, "adoptionApplications")
 export default function AdoptionForm() {
 
     const form = useRef(null)
+
+    const createNewTimeStamp = () => {
+        const newTimeStamp = serverTimestamp()
+        return newTimeStamp
+    }
 
 
     async function saveApplication(e) {
@@ -71,7 +77,8 @@ export default function AdoptionForm() {
                 afraid:afraid,
                 afraidDetails:afraidDetails,
                 vetPermission:vetPermission,
-                otherDetails:otherDetails
+                otherDetails:otherDetails,
+                timeStamp: createNewTimeStamp()
             })
             setSubmitted(true)
             }catch(error) {
@@ -132,6 +139,7 @@ export default function AdoptionForm() {
     const [afraidDetails, setAfraidDetails] = React.useState("")
     const [vetPermission, setVetPermission] = React.useState("")
     const [otherDetails, setOtherDetails] = React.useState("")
+    const {timeStamp, setTimeStamp} = React.useState
 
     const [buttonDisabled, setButtonDisabled] = React.useState(false)
     const [submitted, setSubmitted] = React.useState(false)
