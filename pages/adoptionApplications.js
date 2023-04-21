@@ -2,7 +2,7 @@ import React from "react"
 import Header from "@/components/Header"
 import AdoptionApplicationsCollapse from "@/components/AdoptionApplicationsCollapse"
 import Filter from "@/components/Filter"
-import { db } from "@/firebaseConfig"
+import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
 
 import { collection, doc, getDocs } from "firebase/firestore"
@@ -47,7 +47,24 @@ export default function AdoptionApplications() {
                 return <AdoptionApplicationsCollapse 
                             key={application.id}
                             applicantName={application.firstName + " " + application.lastName} 
-                            dogName={application.dogName}                             
+                            dogName={application.dogName}    
+                            firstName={application.firstName} 
+                            lastName={application.lastName} 
+                            address={application.address}
+                            postCode={application.postCode} 
+                            area={application.area} 
+                            county={application.county} 
+                            email={application.email} 
+                            phone={application.phone}
+                            sex={application.sex}
+                            age={application.age}
+                            colour={application.colour}
+                            registeredOwner={application.registeredOwner}
+                            neutered={application.neutered}
+                            size={application.size}
+                            type={application.type}
+                            vaccinated={application.vaccinated}
+                            // timeStamp = {application.timeStamp}                        
                         />
             })}
 
