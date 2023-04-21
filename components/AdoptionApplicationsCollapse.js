@@ -12,33 +12,34 @@ export default function AdoptionApplicationsCollapse(props) {
             <div className="collapse-title text-xl font-medium flex justify-around">
                 <span>Applicant: {applicantName}</span>
                 <span>Dog: {dogName}</span>
-                <span>{timeStamp}</span>
+                <span>Date: </span>
             </div>
             <div className="collapse-content grid grid-cols- justify-around min-w-full">
                 
                     
                 <div className="personDetails p-4 ">
                     <h2 className="text-secondary-content py-5 font-bold text-lg ">Person Details</h2>
-                    <div>Date Submitted:</div>
-                    <div>{firstName + " " + lastName}</div>
+                    <div><b>Date Submitted: </b></div>
+                    <div><b>Name: </b>{firstName + " " + lastName}</div>
+                    <div> <b>Address:</b></div>
                     <div>{address}</div>
                     <div>{postCode}</div>
                     <div>{county}</div>
-                    <div>{area}</div>
+                    <div><b>Contact Details: </b></div>
                     <div>{email}</div>
                     <div>{phone}</div>
                 </div>
                 <div className=" dogDetails col-start-2 p-4">
                     <h2 className="text-secondary-content py-5 font-bold text-lg ">Dog Details</h2>
-                    <div>Name: {dogName}</div>
-                    <div>Sex: {sex}</div>
-                    <div>Age: {age}</div>
-                    <div>Colour: {colour}</div>
-                    <div>Is the person the registered owner?: {registeredOwner}</div>
-                    <div>Neuetered: {neutered}</div>
-                    <div>Size: {size}</div>
-                    <div>Type: {type}</div>
-                    <div>Reported as Vaccinated: {vaccinated}</div>
+                    <div><b>Name:</b> {dogName}</div>
+                    <div><b>Sex: </b>{sex}</div>
+                    <div><b>Age: </b> {age}</div>
+                    <div><b>Colour: </b>{colour}</div>
+                    <div><b>Register owner?: </b>{registeredOwner}</div>
+                    <div><b>Neutered: </b>{neutered}</div>
+                    <div><b>Size: </b>{size}</div>
+                    <div><b>Type: </b>{type}</div>
+                    <div><b>Vaccinated: </b>{vaccinated}</div>
                 </div>
                 <div className="col-start-3 p-4 flex flex-col justify-around">
                     <button className="btn btn-primary ">Full Information</button>

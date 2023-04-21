@@ -19,7 +19,7 @@ export default function AdoptionForm() {
 
     const createNewTimeStamp = () => {
         const newTimeStamp = serverTimestamp()
-        return newTimeStamp.toDate()
+        return newTimeStamp
     }
 
 
@@ -456,13 +456,13 @@ export default function AdoptionForm() {
                     <div className="miniature form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Miniature</span> 
-                            <input onChange={e => setSize(e.target.value)} required type="radio" name="size" value="Yes" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input onChange={e => setSize(e.target.value)} required type="radio" name="size" value="Miniature" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                         </div>
                     <div className="standard form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">Standard</span> 
-                        <input onChange={e => setSize(e.target.value)} type="radio" name="size" value="No" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setSize(e.target.value)} type="radio" name="size" value="Standard" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
