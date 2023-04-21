@@ -19,7 +19,7 @@ export default function AdoptionForm() {
 
     const createNewTimeStamp = () => {
         const newTimeStamp = serverTimestamp()
-        return newTimeStamp
+        return newTimeStamp.toDate()
     }
 
 
@@ -385,13 +385,13 @@ export default function AdoptionForm() {
                     <div className="male form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 mr-4">Male</span> 
-                            <input onChange={e => setSex(e.target.value)} type="radio" name="sex" value="male" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input onChange={e => setSex(e.target.value)} type="radio" name="sex" value="Male" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                         </div>
                     <div className="female form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content  label-text mr-4">Female</span> 
-                        <input onChange={e => setSex(e.target.value)} type="radio" name="sex" value="female" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setSex(e.target.value)} type="radio" name="sex" value="Female" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -416,13 +416,13 @@ export default function AdoptionForm() {
                     <div className="yes form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input required onChange={e => setRegisteredOwner(e.target.value)} type="radio" name="registeredOwner" value="yes" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input required onChange={e => setRegisteredOwner(e.target.value)} type="radio" name="registeredOwner" value="Yes" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                         </div>
                     <div className="no form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setRegisteredOwner(e.target.value)} type="radio" name="registeredOwner" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setRegisteredOwner(e.target.value)} type="radio" name="registeredOwner" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -439,13 +439,13 @@ export default function AdoptionForm() {
                     <div className="yes form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input onChange={e => setNeutered(e.target.value)} required type="radio" name="neutered" value="yes" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input onChange={e => setNeutered(e.target.value)} required type="radio" name="neutered" value="Yes" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                         </div>
                     <div className="no form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setNeutered(e.target.value)} type="radio" name="neutered" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setNeutered(e.target.value)} type="radio" name="neutered" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -456,13 +456,13 @@ export default function AdoptionForm() {
                     <div className="miniature form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Miniature</span> 
-                            <input onChange={e => setSize(e.target.value)} required type="radio" name="size" value="yes" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input onChange={e => setSize(e.target.value)} required type="radio" name="size" value="Yes" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                         </div>
                     <div className="standard form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">Standard</span> 
-                        <input onChange={e => setSize(e.target.value)} type="radio" name="size" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setSize(e.target.value)} type="radio" name="size" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -473,19 +473,19 @@ export default function AdoptionForm() {
                     <div className="longHaired form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Long Haired</span> 
-                            <input onChange={e => setType(e.target.value)} required type="radio" name="type" value="longHaired" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setType(e.target.value)} required type="radio" name="type" value="Long-haired" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="smooth form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Smooth</span> 
-                            <input onChange={e => setType(e.target.value)} type="radio" name="type" value="smooth" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input onChange={e => setType(e.target.value)} type="radio" name="type" value="Smooth" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                     </div>
                     <div className="wireHaired form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Wire Haired</span> 
-                            <input type="radio" name="type" value="wireHaired" className="radio checked:bg-blue-500 radio-primary"  />
+                            <input type="radio" name="type" value="Wire-haired" className="radio checked:bg-blue-500 radio-primary"  />
                         </label>
                     </div>
                 </div>
@@ -531,13 +531,13 @@ export default function AdoptionForm() {
                     <div className="yes form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input onChange={e => setBreederContacted(e.target.value)} required type="radio" name="breederContacted" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setBreederContacted(e.target.value)} required type="radio" name="breederContacted" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="no form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setBreederContacted(e.target.value)} required type="radio" name="breederContacted" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setBreederContacted(e.target.value)} required type="radio" name="breederContacted" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -547,13 +547,13 @@ export default function AdoptionForm() {
                     <div className="vaccinated form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 mr-4">Yes</span> 
-                            <input onChange={e => setVaccinated(e.target.value)} required type="radio" name="vaccinated" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setVaccinated(e.target.value)} required type="radio" name="vaccinated" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="no form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setVaccinated(e.target.value)} type="radio" name="vaccinated" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setVaccinated(e.target.value)} type="radio" name="vaccinated" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -622,13 +622,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input onChange={e => setExistingHealthConditions(e.target.value)} type="radio" name="existingHealthConditions" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setExistingHealthConditions(e.target.value)} type="radio" name="existingHealthConditions" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setExistingHealthConditions(e.target.value)} type="radio" name="existingHealthConditions" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setExistingHealthConditions(e.target.value)} type="radio" name="existingHealthConditions" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -651,13 +651,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal justify-normal">
                             <span className="label-text text-primary-content mr-4 mr-4">Yes</span> 
-                            <input onChange={e => setHouseTrained(e.target.value)} type="radio" name="houseTrained" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setHouseTrained(e.target.value)} type="radio" name="houseTrained" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal justify-normal">
                         <span className="label-text text-primary-content mr-4 mr-4">No</span> 
-                        <input onChange={e => setHouseTrained(e.target.value)} required type="radio" name="houseTrained" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setHouseTrained(e.target.value)} required type="radio" name="houseTrained" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -669,13 +669,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input onChange={e => setTravelSick(e.target.value)} type="radio" name="travelSick" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setTravelSick(e.target.value)} type="radio" name="travelSick" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setTravelSick(e.target.value)} required type="radio" name="travelSick" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setTravelSick(e.target.value)} required type="radio" name="travelSick" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -687,13 +687,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes</span> 
-                            <input onChange={e => setUsedToCats(e.target.value)} type="radio" name="usedToCats" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setUsedToCats(e.target.value)} type="radio" name="usedToCats" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 ">No</span> 
-                        <input onChange={e => setUsedToCats(e.target.value)} required type="radio" name="usedToCats" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setUsedToCats(e.target.value)} required type="radio" name="usedToCats" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -705,13 +705,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 mr-4">Yes</span> 
-                            <input onChange={e => setUsedToGarden(e.target.value)} required type="radio" name="usedToGarden" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setUsedToGarden(e.target.value)} required type="radio" name="usedToGarden" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4 mr-4">No</span> 
-                        <input onChange={e => setUsedToGarden(e.target.value)} type="radio" name="usedToGarden" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setUsedToGarden(e.target.value)} type="radio" name="usedToGarden" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -723,13 +723,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 mr-4">Yes</span> 
-                            <input onChange={e => setUsedToChildren(e.target.value)} required type="radio" name="usedToChildren" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setUsedToChildren(e.target.value)} required type="radio" name="usedToChildren" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4">No</span> 
-                        <input onChange={e => setUsedToChildren(e.target.value)} type="radio" name="usedToChildren" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setUsedToChildren(e.target.value)} type="radio" name="usedToChildren" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -741,13 +741,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4">Yes</span> 
-                            <input onChange={e => setUsedToOtherDogs(e.target.value)} required type="radio" name="usedToOtherDogs" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setUsedToOtherDogs(e.target.value)} required type="radio" name="usedToOtherDogs" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="label-text text-primary-content mr-4">No</span> 
-                        <input onChange={e => setUsedToOtherDogs(e.target.value)} type="radio" name="usedToOtherDogs" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setUsedToOtherDogs(e.target.value)} type="radio" name="usedToOtherDogs" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -759,13 +759,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4">Yes</span> 
-                            <input onChange={e => setGuardsFoodOrToys(e.target.value)} required type="radio" name="gaurdsFoodOrToys" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setGuardsFoodOrToys(e.target.value)} required type="radio" name="gaurdsFoodOrToys" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setGuardsFoodOrToys(e.target.value)} type="radio" name="gaurdsFoodOrToys" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setGuardsFoodOrToys(e.target.value)} type="radio" name="gaurdsFoodOrToys" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -777,13 +777,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setDigsHoles(e.target.value)} required type="radio" name="digsHoles" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setDigsHoles(e.target.value)} required type="radio" name="digsHoles" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setDigsHoles(e.target.value)} type="radio" name="digsHoles" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setDigsHoles(e.target.value)} type="radio" name="digsHoles" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -795,13 +795,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setNoisy(e.target.value)} required type="radio" name="noisy" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setNoisy(e.target.value)} required type="radio" name="noisy" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setNoisy(e.target.value)} type="radio" name="noisy" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setNoisy(e.target.value)} type="radio" name="noisy" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -813,13 +813,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setWalksOnLead(e.target.value)} required type="radio" name="walksOnLead" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setWalksOnLead(e.target.value)} required type="radio" name="walksOnLead" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setWalksOnLead(e.target.value)} type="radio" name="walksOnLead" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setWalksOnLead(e.target.value)} type="radio" name="walksOnLead" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -831,13 +831,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4">Yes</span> 
-                            <input onChange={e => setComesWhenCalled(e.target.value)} required type="radio" name="comesWhenCalled" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setComesWhenCalled(e.target.value)} required type="radio" name="comesWhenCalled" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setComesWhenCalled(e.target.value)} type="radio" name="comesWhenCalled" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setComesWhenCalled(e.target.value)} type="radio" name="comesWhenCalled" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -849,13 +849,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setCrateTrained(e.target.value)} required type="radio" name="crateTrained" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setCrateTrained(e.target.value)} required type="radio" name="crateTrained" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setCrateTrained(e.target.value)} type="radio" name="crateTrained" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setCrateTrained(e.target.value)} type="radio" name="crateTrained" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -867,13 +867,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setEscapeArtist(e.target.value)} required type="radio" name="escapeArtist" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setEscapeArtist(e.target.value)} required type="radio" name="escapeArtist" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setEscapeArtist(e.target.value)} type="radio" name="escapeArtist" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setEscapeArtist(e.target.value)} type="radio" name="escapeArtist" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -885,13 +885,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setEverBitten(e.target.value)} required type="radio" name="everBitten" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setEverBitten(e.target.value)} required type="radio" name="everBitten" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setEverBitten(e.target.value)} type="radio" name="everBitten" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setEverBitten(e.target.value)} type="radio" name="everBitten" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -913,13 +913,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setOtherPets(e.target.value)} required type="radio" name="otherPets" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setOtherPets(e.target.value)} required type="radio" name="otherPets" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setOtherPets(e.target.value)} type="radio" name="otherPets" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setOtherPets(e.target.value)} type="radio" name="otherPets" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -932,13 +932,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setAfraid(e.target.value)} required type="radio" name="afraid" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setAfraid(e.target.value)} required type="radio" name="afraid" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setAfraid(e.target.value)} type="radio" name="afraid" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setAfraid(e.target.value)} type="radio" name="afraid" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -959,13 +959,13 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="text-primary-content label-text mr-4">Yes</span> 
-                            <input onChange={e => setVetPermission(e.target.value)} required type="radio" name="vetPermission" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input onChange={e => setVetPermission(e.target.value)} required type="radio" name="vetPermission" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                         </label>
                         </div>
                     <div className="form-control">
                     <label className="label cursor-pointer justify-normal">
                         <span className="text-primary-content label-text mr-4">No</span> 
-                        <input onChange={e => setVetPermission(e.target.value)} type="radio" name="vetPermission" value="no" className="radio checked:bg-blue-500 radio-primary"  />
+                        <input onChange={e => setVetPermission(e.target.value)} type="radio" name="vetPermission" value="No" className="radio checked:bg-blue-500 radio-primary"  />
                     </label>
                     </div>
                 </div>
@@ -988,7 +988,7 @@ export default function AdoptionForm() {
                     <div className="form-control">
                         <label className="label cursor-pointer justify-normal">
                             <span className="label-text text-primary-content mr-4 ">Yes, I confirm *</span> 
-                            <input required type="radio" name="confirm" value="yes" className="radio checked:bg-blue-500 radio-primary" />
+                            <input required type="radio" name="confirm" value="Yes" className="radio checked:bg-blue-500 radio-primary" />
                     </label>
                     </div>
                 </div>
