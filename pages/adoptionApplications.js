@@ -11,8 +11,8 @@ import { collection, doc, getDocs } from "firebase/firestore"
 export default function AdoptionApplications() {
 
     const [applications, setApplications] = React.useState([])
-        
-
+    
+ 
     
     useEffect(()=> 
         {
@@ -64,7 +64,8 @@ export default function AdoptionApplications() {
                             size={application.size}
                             type={application.type}
                             vaccinated={application.vaccinated}
-                            // timeStamp = {application.timeStamp}                        
+                            date={application.date}
+                                             
                         />
             })}
 

@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AdoptionApplicationsCollapse(props) {
 
-    const {applicantName, dogName, firstName, lastName, address, postCode, area, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, timeStamp} = props
+    const {applicantName, dogName, firstName, lastName, address, postCode, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, date} = props
 
     return (
         <div>
@@ -12,7 +12,7 @@ export default function AdoptionApplicationsCollapse(props) {
             <div className="collapse-title text-xl font-medium flex justify-around">
                 <span>Applicant: {applicantName}</span>
                 <span>Dog: {dogName}</span>
-                <span>Date: </span>
+                <span>Date: {date}</span>
             </div>
             <div className="collapse-content grid grid-cols- justify-around min-w-full">
                 

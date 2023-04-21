@@ -3,7 +3,7 @@ import styles from "../components/componentStyles/adoptionForm.module.css"
 import { useRef } from "react"
 
 import { collection, addDoc } from "firebase/firestore";
-import { serverTimestamp } from "firebase/firestore";
+import { serverTimestamp, Timestamp } from "firebase/firestore";
 import {doc , setDoc} from "firebase/firestore"
 import { db } from "@/firebaseConfig";
 import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
@@ -21,6 +21,12 @@ export default function AdoptionForm() {
         const newTimeStamp = serverTimestamp()
         return newTimeStamp
     }
+    
+    const currentDate = new Date()
+    let day = currentDate.getDate()
+    let month = currentDate.getMonth() + 1
+    let year = currentDate.getFullYear()
+    const applicationDate = `${day}-${month}-${year}`
 
 
     async function saveApplication(e) {
@@ -78,7 +84,8 @@ export default function AdoptionForm() {
                 afraidDetails:afraidDetails,
                 vetPermission:vetPermission,
                 otherDetails:otherDetails,
-                timeStamp: createNewTimeStamp()
+                timeStamp: createNewTimeStamp(),
+                date: applicationDate
             })
             setSubmitted(true)
             }catch(error) {
