@@ -5,13 +5,15 @@ import Filter from "@/components/Filter"
 import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
 
-import { collection, doc, getDocs } from "firebase/firestore"
+import { collection, doc, getDocs , query, where} from "firebase/firestore"
 
 
-export default function AdoptionApplications() {
+export default function AdoptionApplications(props) {
 
     const [applications, setApplications] = React.useState([])
+    const [selectedArea, setSelectedArea] = React.useState("")
     
+    const {value} = props
  
     
     useEffect(()=> 
@@ -32,14 +34,14 @@ export default function AdoptionApplications() {
         };
         fetchApplications();
         
-    }, [])
+    }, [selectedArea])
        
 
     return (
         <div>
             <Header />
             
-            <Filter />
+            <Filter selectedArea={selectedArea} setSelectedArea={setSelectedArea}/>
             <div className="divider before:bg-accent after:bg-accent text-accent">New Applications</div>
 
             {

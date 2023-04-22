@@ -1,19 +1,22 @@
 import React from "react";
 
-export default function Filter() {
+export default function Filter(props) {
+
+    const {selectedArea, setSelectedArea} = props
+
     return (
         <div className="filterContainer flex justify-evenly my-6">
-            <select className="select max-w-xs flex flex-inital" defaultValue={""}>
+            <select value={selectedArea} onChange={(e) => setSelectedArea(e.target.value)} className="select max-w-xs flex flex-inital" defaultValue={""}>
                 <option disabled value="">Area</option>
-                <option>London</option>
-                <option>South East</option>
-                <option>East of England</option>
-                <option>South West</option>
-                <option>Midlands</option>
-                <option>North West</option>
-                <option>North East</option>
-                <option>Scotland</option>
-                <option>Wales</option>
+                <option value={"London"}>London</option>
+                <option value={"South East"}>South East</option>
+                <option value={"East of England"}>East of England</option>
+                <option value={"South West"}>South West</option>
+                <option value={"Midlands"}>Midlands</option>
+                <option value={"North West"}>North West</option>
+                <option value={"North East"}>North East</option>
+                <option value={"Scotland"}>Scotland</option>
+                <option value={"Wales"}>Wales</option>
             </select>
 
             <select className="select max-w-xs flex flex-inital" defaultValue={""}>
