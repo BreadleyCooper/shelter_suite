@@ -13,16 +13,21 @@ export default function AdoptionApplications(props) {
     const [applications, setApplications] = React.useState([])
     const [selectedArea, setSelectedArea] = React.useState("")
     
-    const {value} = props
+    
  
     
     useEffect(()=> 
         {
         const fetchApplications = async () => {
             
-    
+
             try {
-                const querySnapshot = await getDocs(collection(db, "adoptionApplications"));
+                // Set a reference to the adoptionApplications collection.
+                const adoptionApplicationsRef = collection(db, "adoptionApplications")
+                // create a query to only match the area selected
+                const q = query(adoptionApplicationsRef, where ("area", "==", selectedArea))
+
+                const querySnapshot = await getDocs(q);
                 const newData = [];
                 querySnapshot.forEach((doc) => {
                     newData.push({...doc.data(), id: doc.id});
@@ -33,7 +38,7 @@ export default function AdoptionApplications(props) {
             }
         };
         fetchApplications();
-        
+        // update the request when the selected area changes
     }, [selectedArea])
        
 
