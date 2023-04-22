@@ -13,7 +13,6 @@ export default function AdoptionApplications(props) {
     const [applications, setApplications] = React.useState([])
     const [selectedArea, setSelectedArea] = React.useState("")
     
-    
  
     
     useEffect(()=> 
@@ -44,41 +43,46 @@ export default function AdoptionApplications(props) {
 
     return (
         <div>
-            <Header />
-            
-            <Filter selectedArea={selectedArea} setSelectedArea={setSelectedArea}/>
-            <div className="divider before:bg-accent after:bg-accent text-accent">New Applications</div>
+          <Header />
+          <Filter selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
 
-            {
-            applications.map((application) => {
-                return <AdoptionApplicationsCollapse 
-                            key={application.id}
-                            applicantName={application.firstName + " " + application.lastName} 
-                            dogName={application.dogName}    
-                            firstName={application.firstName} 
-                            lastName={application.lastName} 
-                            address={application.address}
-                            postCode={application.postCode} 
-                            area={application.area} 
-                            county={application.county} 
-                            email={application.email} 
-                            phone={application.phone}
-                            sex={application.sex}
-                            age={application.age}
-                            colour={application.colour}
-                            registeredOwner={application.registeredOwner}
-                            neutered={application.neutered}
-                            size={application.size}
-                            type={application.type}
-                            vaccinated={application.vaccinated}
-                            date={application.date}
-                                             
-                        />
-            })}
-
-            
-            <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
-
+          {/* If the no selected area, return choose an area, else return the selected area filtered applications */}
+          {selectedArea === "" ? (
+            <div className="text-center my-16 text-accent text-4xl font-medium">Select an Area to start</div>
+          ) : (
+            <>
+              <div className="divider before:bg-accent after:bg-accent text-accent">New Applications</div>
+              {/* if no applications, show message, else render the list. */}
+              {applications.length === 0 && (<div className="text-center my-16 text-accent text-4xl font-medium">No New Applications in {selectedArea}</div>)}
+              
+              {/* Render the list of applications */}
+              {applications.map((application) => (
+                <AdoptionApplicationsCollapse 
+                  key={application.id}
+                  applicantName={application.firstName + " " + application.lastName} 
+                  dogName={application.dogName}    
+                  firstName={application.firstName} 
+                  lastName={application.lastName} 
+                  address={application.address}
+                  postCode={application.postCode} 
+                  area={application.area} 
+                  county={application.county} 
+                  email={application.email} 
+                  phone={application.phone}
+                  sex={application.sex}
+                  age={application.age}
+                  colour={application.colour}
+                  registeredOwner={application.registeredOwner}
+                  neutered={application.neutered}
+                  size={application.size}
+                  type={application.type}
+                  vaccinated={application.vaccinated}
+                  date={application.date}
+                />
+              ))}
+              <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
+            </>
+          )}
         </div>
-    )
+      );
 }

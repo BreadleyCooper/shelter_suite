@@ -6,7 +6,7 @@ export default function Filter(props) {
 
     return (
         <div className="filterContainer flex justify-evenly my-6">
-            <select value={selectedArea} onChange={(e) => setSelectedArea(e.target.value)} className="select max-w-xs flex flex-inital" defaultValue={""}>
+            <select value={selectedArea} onChange={(e) => setSelectedArea(e.target.value)} className="select max-w-xs flex flex-inital" >
                 <option disabled value="">Area</option>
                 <option value={"London"}>London</option>
                 <option value={"South East"}>South East</option>
@@ -19,14 +19,14 @@ export default function Filter(props) {
                 <option value={"Wales"}>Wales</option>
             </select>
 
-            <select className="select max-w-xs flex flex-inital" defaultValue={""}>
+            <select className="select max-w-xs flex flex-inital" >
                 <option disabled value={""}>Status</option>
                 <option>New</option>
                 <option>Closed</option>
 
             </select>
 
-            <select className="select min-w-fit max-w-xs flex flex-inital" defaultValue={""}>
+            <select className="select min-w-fit max-w-xs flex flex-inital" >
                 <option disabled value={""}>Filter</option>
                 <option>Example</option>
                 <option>Example</option>
