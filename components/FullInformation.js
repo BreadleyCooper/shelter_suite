@@ -12,7 +12,7 @@ export default function FullInformation(props) {
         const fetchApplication = async () => {
           try {
             // Set a reference to the Application Document.
-            const applicationRef = doc(db, "adoptionApplications", i);
+            const applicationRef = doc(db, "adoptionApplications", currentApplicationID);
       
             const applicationSnap = await getDoc(applicationRef);
             console.log(applicationSnap.data());
