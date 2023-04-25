@@ -5,26 +5,24 @@ import { db } from "@/firebaseConfig"
 
 export default function FullInformation(props) {
     
-    const {applicationId, setShowFullInfo} = props
+    const {currentApplicationID, setShowFullInfo} = props
 
-    useEffect(()=> 
-    {
-    const fetchApplication = async () => {
-        
-
-        try {
+    useEffect(() => {
+        console.log("Current ApplicationID => ",currentApplicationID)
+        const fetchApplication = async () => {
+          try {
             // Set a reference to the Application Document.
-            const applicationRef = getDoc(db,"adoptionApplications", applicationId)
-
+            const applicationRef = doc(db, "adoptionApplications", i);
+      
             const applicationSnap = await getDoc(applicationRef);
-            console.log(applicationSnap.data())
-        } catch(e) {
+            console.log(applicationSnap.data());
+          } catch (e) {
             console.log(e);
-        }
-    };
-    fetchApplication();
-    // update the request when the selected area changes
-}, [])
+          }
+        };
+        fetchApplication();
+        // update the request when the selected area changes
+      }, []);
 
     return (
         <div className="bg-white ">

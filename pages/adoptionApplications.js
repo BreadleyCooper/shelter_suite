@@ -17,7 +17,7 @@ export default function AdoptionApplications(props) {
     
     const [showFullInfo, setShowFullInfo] = React.useState(false)
 
-    const[currentApplication, setCurrentApplication] = React.useState("")
+    const[currentApplicationID, setCurrentApplicationID] = React.useState("")
     
  
     
@@ -50,7 +50,7 @@ export default function AdoptionApplications(props) {
     if (showFullInfo) {
       return (
         <div>
-          <FullInformation applicationId={currentApplication}
+          <FullInformation currentApplicationID={currentApplicationID}
                             setShowFullInfo={setShowFullInfo}/>
         </div>
       )
@@ -75,6 +75,7 @@ export default function AdoptionApplications(props) {
               {applications.map((application) => (
                 <AdoptionApplicationsCollapse 
                   key={application.id}
+                  id={application.id}
                   applicantName={application.firstName + " " + application.lastName} 
                   dogName={application.dogName}    
                   firstName={application.firstName} 
@@ -95,7 +96,7 @@ export default function AdoptionApplications(props) {
                   vaccinated={application.vaccinated}
                   date={application.date}
                   setShowFullInfo={setShowFullInfo}
-                  onClick={()=>setCurrentApplication(application.id)}
+                  setCurrentApplicationID={setCurrentApplicationID}
                 />
               ))}
               <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
