@@ -16,6 +16,8 @@ export default function AdoptionApplications(props) {
     const [selectedArea, setSelectedArea] = React.useState("")
     
     const [showFullInfo, setShowFullInfo] = React.useState(false)
+
+    const[currentApplication, setCurrentApplication] = React.useState("")
     
  
     
@@ -48,7 +50,8 @@ export default function AdoptionApplications(props) {
     if (showFullInfo) {
       return (
         <div>
-          <FullInformation />
+          <FullInformation applicationId={currentApplication}
+                            setShowFullInfo={setShowFullInfo}/>
         </div>
       )
     }
@@ -92,6 +95,7 @@ export default function AdoptionApplications(props) {
                   vaccinated={application.vaccinated}
                   date={application.date}
                   setShowFullInfo={setShowFullInfo}
+                  onClick={()=>setCurrentApplication(application.id)}
                 />
               ))}
               <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
