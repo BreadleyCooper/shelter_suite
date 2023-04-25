@@ -27,9 +27,9 @@ export default function FullInformation(props) {
       }, []);
 
     return (
-        <div className="grid">
+        <div className="grid py-4">
             <div className="grid gap-8">
-                <div className="bg-white mx-12 py-8">
+                <div className="bg-white mx-12 p-8">
                     {/* Header  */}
                     <div className="flex justify-around">
                         <h2 className="text-secondary-content py-5 font-bold text-lg ">Applcation Details</h2>
@@ -60,7 +60,7 @@ export default function FullInformation(props) {
                     </div>
 
                 </div>
-                <div className="bg-white mx-12 py-8">
+                <div className="bg-white mx-12 p-8">
                     {/* Dog Details */}
                     <div >
                         <h2 className="text-secondary-content py-5 font-bold text-lg ">Dog Details</h2>
