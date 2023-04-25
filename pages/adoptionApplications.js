@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "@/components/Header"
 import AdoptionApplicationsCollapse from "@/components/AdoptionApplicationsCollapse"
+import FullInformation from "@/components/FullInformation"
 import Filter from "@/components/Filter"
 import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
@@ -8,10 +9,13 @@ import { useEffect } from "react"
 import { collection, doc, getDocs , query, where} from "firebase/firestore"
 
 
+
 export default function AdoptionApplications(props) {
 
     const [applications, setApplications] = React.useState([])
     const [selectedArea, setSelectedArea] = React.useState("")
+    
+    const [showFullInfo, setShowFullInfo] = React.useState(false)
     
  
     
@@ -41,9 +45,18 @@ export default function AdoptionApplications(props) {
     }, [selectedArea])
        
 
+    if (showFullInfo) {
+      return (
+        <div>
+          <FullInformation />
+        </div>
+      )
+    }
+
     return (
         <div>
           <Header />
+
           <Filter selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
 
           {/* If the no selected area, return choose an area, else return the selected area filtered applications */}
@@ -78,6 +91,7 @@ export default function AdoptionApplications(props) {
                   type={application.type}
                   vaccinated={application.vaccinated}
                   date={application.date}
+                  setShowFullInfo={setShowFullInfo}
                 />
               ))}
               <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
