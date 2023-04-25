@@ -22,6 +22,7 @@ export default function AdoptionForm() {
         return newTimeStamp
     }
     
+    // Readable date generator
     const currentDate = new Date()
     let day = currentDate.getDate()
     let month = currentDate.getMonth() + 1
