@@ -109,6 +109,7 @@ export default function FullInformation(props) {
                         </div>
                         {/* Footer */}
                         <div className="flex flex-row-reverse">
+                            <button className="btn m-6" onClick={()=>setShowFullInfo(false) }>Close</button>
                             <button className="btn btn-success bg-lime-500 m-6">Accept</button>
                             <button className="btn btn-error bg-red-500 m-6">Reject</button>
                         </div>
