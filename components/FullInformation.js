@@ -27,7 +27,7 @@ export default function FullInformation(props) {
       }, []);
 
     return (
-        <div className="grid py-4">
+        <div className="grid py-4 max-w-7xl justify-center">
             <div className="grid gap-8">
                 <div className="bg-white mx-12 p-8">
                     {/* Header  */}
@@ -53,7 +53,7 @@ export default function FullInformation(props) {
                         </div>
                         {/* Reason for rehoming */}
                         <div>
-                            <p className="my-6"><b>Reason for rehoming: </b></p>
+                            <p className="mt-6"><b>Reason for rehoming: </b></p>
                             <br></br>
                             <p>{fullDetails.reasonForRehome}</p>
                         </div>
@@ -62,55 +62,60 @@ export default function FullInformation(props) {
                 </div>
                 <div className="bg-white mx-12 p-8">
                     {/* Dog Details */}
-                    <div >
                         <h2 className="text-secondary-content py-5 font-bold text-lg ">Dog Details</h2>
-                        <p><b>Dog Name: </b>{fullDetails.dogName}</p>
-                        <p><b>Sex: </b>{fullDetails.sex}</p>
-                        <p><b>Age: </b>{fullDetails.age}</p>
-                        <p><b>Colour: </b>{fullDetails.colour}</p>
-                        <p><b>Neutered: </b>{fullDetails.neutered}</p>
-                        <p><b>Email: </b>{fullDetails.email}</p>
-                        <p><b>Size: </b>{fullDetails.size}</p>
-                        <p><b>Type: </b>{fullDetails.type}</p>
-                        <p><b>Microchip Number: </b>{fullDetails.microchip}</p>
-                        <p><b>KC Name: </b>{fullDetails.kcName}</p>
-                        <p><b>KC Number: </b>{fullDetails.kcNumber}</p>
-                        <p><b>Breeder Contacted: </b>{fullDetails.breederContacted}</p>
-                        <p><b>Vaccinated: </b>{fullDetails.vaccinated}</p>
-                        <p><b>PRA Status: </b>{fullDetails.praStatus}</p>
-                        <p><b>Lafora Status: </b>{fullDetails.laforaStatus}</p>
-                        <p><b>Existing Health Conditions: </b>{fullDetails.existingHealthConditions}</p>
-                        <p><b>Health Details: </b>{fullDetails.healthDetails}</p>
-                        <p><b>House Trained: </b>{fullDetails.houseTrained}</p>
-                        <p><b>Travel Sick: </b>{fullDetails.travelSick}</p>
-                        <p><b>Used to Cats: </b>{fullDetails.usedToCats}</p>
-                        <p><b>Used to a Garden: </b>{fullDetails.usedToGarden}</p>
-                        <p><b>Used to Children: </b>{fullDetails.usedToChildren}</p>
-                        <p><b>used to Other Dogs: </b>{fullDetails.usedToOtherDogs}</p>
-                        <p><b>Guards Food/Toys: </b>{fullDetails.guardsFoodOrToys}</p>
-                        <p><b>Digs Holes: </b>{fullDetails.digsHoles}</p>
-                        <p><b>Noisy: </b>{fullDetails.noisy}</p>
-                        <p><b>Walks on Lead: </b>{fullDetails.walksOnLead}</p>
-                        <p><b>Comes When Called: </b>{fullDetails.comesWhenCalled}</p>
-                        <p><b>Crate Trained: </b>{fullDetails.crateTrained}</p>
-                        <p><b>Escapte Artist: </b>{fullDetails.escapeArtist}</p>
-                        <p><b>Ever Bitten: </b>{fullDetails.everBitten}</p>
-                        <p><b>If yes, details: </b>{fullDetails.bittenDetails}</p>
-                        <p><b>Used to Other Pets: </b>{fullDetails.otherPets}</p>
-                        <p><b>Afraid of Anything: </b>{fullDetails.afraid}</p>
-                        <p><b>If yes, details: </b>{fullDetails.afraidDetails}</p>
-                        <p><b>Permission to contact vet: </b>{fullDetails.vetPermission}</p>
-                        <p><b>Other Details: </b>{fullDetails.otherDetails}</p>
+                        <div className={"grid grid-cols-3 gap-2" }>
+                            <p><b>Dog Name: </b>{fullDetails.dogName}</p>
+                            <p><b>Sex: </b>{fullDetails.sex}</p>
+                            <p><b>Age: </b>{fullDetails.age}</p>
+                            <p><b>Colour: </b>{fullDetails.colour}</p>
+                            <p><b>Neutered: </b>{fullDetails.neutered}</p>
+                            <p><b>Size: </b>{fullDetails.size}</p>
+                            <p><b>Type: </b>{fullDetails.type}</p>
+                            <p><b>Microchip Number: </b>{fullDetails.microchip}</p>
+                            <p><b>KC Name: </b>{fullDetails.kcName}</p>
+                            <p><b>KC Number: </b>{fullDetails.kcNumber}</p>
+                            <p><b>Breeder Contacted: </b>{fullDetails.breederContacted}</p>
+                            </div>
+                        <div className="grid grid-cols-3 gap-2" >
+                            <h2 className="text-secondary-content py-5 font-bold text-lg">Health Details</h2>
+                            <p className="row-start-2"><b>Vaccinated: </b>{fullDetails.vaccinated}</p>
+                            <p className="row-start-2"><b>PRA Status: </b>{fullDetails.praStatus}</p>
+                            <p className="row-start-2"><b>Lafora Status: </b>{fullDetails.laforaStatus}</p>
+                            <p className="row-start-2"><b>Existing Health Conditions: </b>{fullDetails.existingHealthConditions}</p>
+                            <p className="row-start-3 col-start-1 col-end-4"><b>Health Details: </b>{fullDetails.healthDetails}</p>
+                        </div>
+                        <div className="grid grid-cols-3 gap-2">
+                            <h2 className="text-secondary-content py-5 font-bold text-lg">More Details</h2>
+                            <p className="row-start-2"><b>House Trained: </b>{fullDetails.houseTrained}</p>
+                            <p className="row-start-2"><b>Travel Sick: </b>{fullDetails.travelSick}</p>
+                            <p className="row-start-2"><b>Used to Cats: </b>{fullDetails.usedToCats}</p>
+                            <p className="row-start-3"><b>Used to a Garden: </b>{fullDetails.usedToGarden}</p>
+                            <p className="row-start-3"><b>Used to Children: </b>{fullDetails.usedToChildren}</p>
+                            <p className="row-start-3"><b>used to Other Dogs: </b>{fullDetails.usedToOtherDogs}</p>
+                            <p className="row-start-4"><b>Guards Food/Toys: </b>{fullDetails.guardsFoodOrToys}</p>
+                            <p className="row-start-4"><b>Digs Holes: </b>{fullDetails.digsHoles}</p>
+                            <p className="row-start-4"><b>Noisy: </b>{fullDetails.noisy}</p>
+                            <p className="row-start-5"><b>Walks on Lead: </b>{fullDetails.walksOnLead}</p>
+                            <p className="row-start-5"><b>Comes When Called: </b>{fullDetails.comesWhenCalled}</p>
+                            <p className="row-start-5"><b>Crate Trained: </b>{fullDetails.crateTrained}</p>
+                            <p className="row-start-6"><b>Escapte Artist: </b>{fullDetails.escapeArtist}</p>
+                            <p className="row-start-6"><b>Used to Other Pets: </b>{fullDetails.otherPets}</p>
+                            <p className="row-start-7"><b>Ever Bitten: </b>{fullDetails.everBitten}</p>
+                            <p className="row-start-8 col-start-1 col-end-4"><b>If yes, details: </b>{fullDetails.bittenDetails}</p>
+                            <p className="row-start-10"><b>Afraid of Anything: </b>{fullDetails.afraid}</p>
+                            <p className="row-start-11 col-start-1 col-end-4"><b>If yes, details: </b>{fullDetails.afraidDetails}</p>
+                            <p className="row-start-12"><b>Permission to contact vet: </b>{fullDetails.vetPermission}</p>
+                            <p className="row-start-13 col-start-1 col-end-4"><b>Other Details: </b>{fullDetails.otherDetails}</p>
+                        </div>
+                        {/* Footer */}
+                        <div className="flex flex-row-reverse">
+                            <button className="btn btn-success bg-lime-500 m-6">Accept</button>
+                            <button className="btn btn-error bg-red-500 m-6">Reject</button>
+                        </div>
                     </div>
-                </div>
-            </div>  
+                 </div>  
 
-            {/* Footer */}
-            <div>
-                <button className="btn btn-success bg-lime-500">Accept</button>
-                <button className="btn btn-error bg-red-500">Reject</button>
-            </div>
-        </div>
+             </div>
     )
 
 }

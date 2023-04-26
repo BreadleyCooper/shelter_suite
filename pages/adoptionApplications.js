@@ -49,7 +49,7 @@ export default function AdoptionApplications(props) {
 
     if (showFullInfo) {
       return (
-        <div>
+        <div className="flex justify-center">
           <FullInformation currentApplicationID={currentApplicationID}
                             setShowFullInfo={setShowFullInfo}/>
         </div>
