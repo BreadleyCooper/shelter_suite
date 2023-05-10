@@ -16,7 +16,7 @@ export default function SignIn() {
     const signInEmailPassword = async (event) => {
         event.preventDefault()
         try{const userCredential = await signInWithEmailAndPassword(auth, email, password)
-            router.push("/index")
+            router.push("/")
 
         }
     catch(error){
