@@ -1,12 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import Header from "@/components/Header"
 import AdoptionApplicationsCollapse from "@/components/AdoptionApplicationsCollapse"
 import FullInformation from "@/components/FullInformation"
 import Filter from "@/components/Filter"
 import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import Router from "next/router"
 
 import { collection, doc, getDocs , query, where} from "firebase/firestore"
+import LoadingScreen from "@/components/LoadingScreen"
 
 
 
@@ -18,8 +21,22 @@ export default function AdoptionApplications(props) {
     const [showFullInfo, setShowFullInfo] = React.useState(false)
 
     const[currentApplicationID, setCurrentApplicationID] = React.useState("")
-    
+
+    const [loading, setLoading] = React.useState(true)
+    const [authenticated, setAuthenticated] = useState(false)    
  
+    useEffect(() => {
+      const auth = getAuth(app)
+      const unsubscribe = onAuthStateChanged(auth, (user)=> {
+        if(user) {
+          setAuthenticated(true)
+        } else {
+          Router.push("/signIn")
+        }
+        setLoading(false)
+      })
+      return () => unsubscribe
+    }, [])
     
     useEffect(()=> 
         {
@@ -45,8 +62,14 @@ export default function AdoptionApplications(props) {
         fetchApplications();
         // update the request when the selected area changes
     }, [selectedArea])
-       
 
+    if (loading) {
+      return <LoadingScreen />
+    }
+    if (!authenticated) {
+      return null
+    }
+       
     if (showFullInfo) {
       return (
         <div className="flex justify-center">
