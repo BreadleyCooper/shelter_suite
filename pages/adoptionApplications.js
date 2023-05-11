@@ -23,7 +23,7 @@ export default function AdoptionApplications(props) {
     const[currentApplicationID, setCurrentApplicationID] = React.useState("")
 
     const [loading, setLoading] = React.useState(true)
-    const [authenticated, setAuthenticated] = useState(false)    
+    const [authenticated, setAuthenticated] = React.useState(false)    
  
     useEffect(() => {
       const auth = getAuth(app)
