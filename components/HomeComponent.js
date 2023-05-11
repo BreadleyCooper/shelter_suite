@@ -26,10 +26,10 @@ export default function HomeComponent() {
                       buttonText = "Enter" 
                       linkLocation="/"
             />
-            <MenuCard cardTitle="Add New Entity"
-                      cardDescription="Manually add a new person or animal"
+            <MenuCard cardTitle="Adoption Application Form"
+                      cardDescription="Go to adoption application form"
                       buttonText = "Enter"
-                      linkLocation="/"  
+                      linkLocation="/adoptionForm"  
             />
         </div>
     )
