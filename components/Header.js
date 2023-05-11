@@ -1,9 +1,27 @@
 import React from "react"
 import Link from "next/link"
+import Router from "next/router"
+import { getAuth, signOut } from "firebase/auth"
 
 
 export default function Header () {
-    return (
+
+    const [signedIn, setSignedIn] = React.useState(true)
+
+    const auth = getAuth()
+    const signOut = () => {
+        auth.signOut().then(() => {
+            setSignedIn(false)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+    if(!signedIn) {
+        Router.push("/signIn")
+    }
+
+    return (   
     <div className={`navbar bg-base-100`}>
         <div className="navbar-start">
             <div className="dropdown">
@@ -22,6 +40,7 @@ export default function Header () {
             </Link>
         </div>
         <div className="navbar-end">
+            <button onClick={() => signOut()} className="btn mr-8">Sign Out</button>
             <button className="btn btn-ghost btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             </button>

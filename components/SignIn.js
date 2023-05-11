@@ -55,7 +55,7 @@ export default function SignIn() {
                         </div>
                         {/* Conditional rendering of error message */}
                         {signInError === "auth/wrong-password" && (
-                            <p className="text-red-500 text-sm">Wrong Email or Password</p>
+                            <p className="text-red-500 font-bold text-m mt-2">Wrong Email or Password</p>
                         )}
                         <div className="card-actions">
                             <button onClick={signInEmailPassword} className="btn btn-primary my-5 justify-self-center">Sign In</button>
