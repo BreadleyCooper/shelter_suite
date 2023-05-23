@@ -9,7 +9,9 @@ import { db } from "@/firebaseConfig";
 import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
 import Link from "next/link";
 
-const dbInstance = collection(db, "adoptionApplications")
+const adoptionApplicationsInstance = collection(db, "adoptionApplications")
+const dogsInstance = collection(db, "dogs")
+const peopleInstance = collection(db, "people")
 
 
 
@@ -29,65 +31,132 @@ export default function AdoptionForm() {
     let year = currentDate.getFullYear()
     const applicationDate = `${day}-${month}-${year}`
 
+    // Split saveApplication up into three functions - saveApplicationDetails, savePerson, saveDog, each writing to different documents in backend
+
+    const saveApplicationDetails = () => {
+        addDoc(adoptionApplicationsInstance, {
+            firstName: firstName,
+            lastName : lastName,
+            address: address,
+            addressLine1: addressLine1,
+            county: county,
+            postCode: postCode,
+            area : area,
+            email:email,
+            phone:phone,
+            dogName:dogName,
+            reasonForRehome : reasonForRehome,
+            sex:sex,
+            age:age,
+            colour:colour,
+            registeredOwner:registeredOwner,
+            notRegisteredOwnerDetails:notRegisteredOwnerDetails,
+            neutered:neutered,
+            size:size,
+            type:type,
+            microChip:microChip,
+            kcName:kcName,
+            kcNumber: kcNumber,
+            breeder : breeder,
+            breederContacted:breederContacted,
+            vaccinated:vaccinated,
+            praStatus:praStatus,
+            laforasStatus:laforasStatus,
+            existingHealthConditions:existingHealthConditions,
+            healthDetails:healthDetails,
+            houseTrained:houseTrained,
+            travelSick:travelSick,
+            usedToCats:usedToCats,
+            usedToGarden:usedToGarden,
+            usedToChildren:usedToChildren,
+            usedToOtherDogs:usedToOtherDogs,
+            gaurdsFoodOrToys:gaurdsFoodOrToys,
+            digsHoles:digsHoles,
+            noisy:noisy,
+            walksOnLead:walksOnLead,
+            comesWhenCalled:comesWhenCalled,
+            crateTrained: crateTrained,
+            escapeArtist:escapeArtist,
+            everBitten:everBitten,
+            bittenDetails:bittenDetails,
+            otherPets:otherPets,
+            afraid:afraid,
+            afraidDetails:afraidDetails,
+            vetPermission:vetPermission,
+            otherDetails:otherDetails,
+            timeStamp: createNewTimeStamp(),
+            date: applicationDate
+        })
+    }
+
+    const savePerson = () => {
+        addDoc(peopleInstance, {  
+            firstName: firstName,
+            lastName : lastName,
+            address: address,
+            addressLine1: addressLine1,
+            county: county,
+            postCode: postCode,
+            area : area,
+            email:email,
+            phone:phone,
+            dogName:dogName,
+        })
+    }
+
+    const saveDog = () => {
+        addDoc(dogsInstance, {
+            affiliatedPerson: firstName + " " + lastName,
+            dogName:dogName,
+            reasonForRehome : reasonForRehome,
+            sex:sex,
+            age:age,
+            colour:colour,
+            neutered:neutered,
+            size:size,
+            type:type,
+            microChip:microChip,
+            kcName:kcName,
+            kcNumber: kcNumber,
+            breeder : breeder,
+            breederContacted:breederContacted,
+            vaccinated:vaccinated,
+            praStatus:praStatus,
+            laforasStatus:laforasStatus,
+            existingHealthConditions:existingHealthConditions,
+            healthDetails:healthDetails,
+            houseTrained:houseTrained,
+            travelSick:travelSick,
+            usedToCats:usedToCats,
+            usedToGarden:usedToGarden,
+            usedToChildren:usedToChildren,
+            usedToOtherDogs:usedToOtherDogs,
+            gaurdsFoodOrToys:gaurdsFoodOrToys,
+            digsHoles:digsHoles,
+            noisy:noisy,
+            walksOnLead:walksOnLead,
+            comesWhenCalled:comesWhenCalled,
+            crateTrained: crateTrained,
+            escapeArtist:escapeArtist,
+            everBitten:everBitten,
+            bittenDetails:bittenDetails,
+            otherPets:otherPets,
+            afraid:afraid,
+            afraidDetails:afraidDetails,
+            vetPermission:vetPermission,
+            otherDetails:otherDetails,
+            timeStamp: createNewTimeStamp(),
+        })
+    }
 
     async function saveApplication(e) {
         if (form.current.checkValidity()) {
             e.preventDefault()
             setButtonDisabled(true)
             try{
-            addDoc(dbInstance, {
-                firstName: firstName,
-                lastName : lastName,
-                address: address,
-                addressLine1: addressLine1,
-                county: county,
-                postCode: postCode,
-                area : area,
-                email:email,
-                phone:phone,
-                dogName:dogName,
-                reasonForRehome : reasonForRehome,
-                sex:sex,
-                age:age,
-                colour:colour,
-                registeredOwner:registeredOwner,
-                notRegisteredOwnerDetails:notRegisteredOwnerDetails,
-                neutered:neutered,
-                size:size,
-                type:type,
-                microChip:microChip,
-                kcName:kcName,
-                kcNumber: kcNumber,
-                breeder : breeder,
-                breederContacted:breederContacted,
-                vaccinated:vaccinated,
-                praStatus:praStatus,
-                laforasStatus:laforasStatus,
-                existingHealthConditions:existingHealthConditions,
-                healthDetails:healthDetails,
-                houseTrained:houseTrained,
-                travelSick:travelSick,
-                usedToCats:usedToCats,
-                usedToGarden:usedToGarden,
-                usedToChildren:usedToChildren,
-                usedToOtherDogs:usedToOtherDogs,
-                gaurdsFoodOrToys:gaurdsFoodOrToys,
-                digsHoles:digsHoles,
-                noisy:noisy,
-                walksOnLead:walksOnLead,
-                comesWhenCalled:comesWhenCalled,
-                crateTrained: crateTrained,
-                escapeArtist:escapeArtist,
-                everBitten:everBitten,
-                bittenDetails:bittenDetails,
-                otherPets:otherPets,
-                afraid:afraid,
-                afraidDetails:afraidDetails,
-                vetPermission:vetPermission,
-                otherDetails:otherDetails,
-                timeStamp: createNewTimeStamp(),
-                date: applicationDate
-            })
+            saveApplicationDetails();
+            savePerson();
+            saveDog();
             setSubmitted(true)
             }catch(error) {
                 console.log(error)
