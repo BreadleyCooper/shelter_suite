@@ -3,11 +3,16 @@ import React from "react";
 
 export default function AdoptionApplicationsCollapse(props) {
 
-    const {applicantName, dogName, firstName, lastName, address, postCode, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, date, setShowFullInfo, setCurrentApplicationID, id} = props
+    const {applicantName, dogName, firstName, lastName, address, postCode, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, date, setShowFullInfo, setCurrentApplicationID, id, setAcceptBtnClicked} = props
 
     const fullInformationClick = () => {
         setCurrentApplicationID(id)
         setShowFullInfo(true)
+    }
+
+    const handleAccept = () => {
+        setCurrentApplicationID(id)
+        setAcceptBtnClicked(true)
     }
 
     return (
@@ -48,7 +53,7 @@ export default function AdoptionApplicationsCollapse(props) {
                 </div>
                 <div className="col-start-3 p-4 flex flex-col justify-around">
                     <button onClick={()=>fullInformationClick()} className="btn btn-primary ">Full Information</button>
-                    <button className="btn btn-success bg-lime-500">Accept</button>
+                    <button onClick={()=>handleAccept()} className="btn btn-success bg-lime-500">Accept</button>
                     <button className="btn btn-error bg-red-500">Reject</button>
                 </div>
                     

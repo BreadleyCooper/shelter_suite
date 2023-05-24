@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import AdoptionApplicationsCollapse from "@/components/AdoptionApplicationsCollapse"
 import FullInformation from "@/components/FullInformation"
 import Filter from "@/components/Filter"
+import Modal from "@/components/Modal"
 import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -19,6 +20,8 @@ export default function AdoptionApplications(props) {
     const [selectedArea, setSelectedArea] = React.useState("")
     
     const [showFullInfo, setShowFullInfo] = React.useState(false)
+
+    const [acceptBtnClicked, setAcceptBtnClicked] = React.useState(false)
 
     const[currentApplicationID, setCurrentApplicationID] = React.useState("")
 
@@ -68,6 +71,16 @@ export default function AdoptionApplications(props) {
     }
     if (!authenticated) {
       return null
+    }
+
+
+    if(acceptBtnClicked) {
+      return (
+        <div className="flex justify-center">
+          <Modal currentApplicationID={currentApplicationID}
+                  setAcceptBtnClicked={setAcceptBtnClicked}/>
+        </div>
+      )
     }
        
     if (showFullInfo) {
@@ -120,6 +133,7 @@ export default function AdoptionApplications(props) {
                   date={application.date}
                   setShowFullInfo={setShowFullInfo}
                   setCurrentApplicationID={setCurrentApplicationID}
+                  setAcceptBtnClicked={setAcceptBtnClicked}
                 />
               ))}
               <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>

@@ -9,6 +9,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 
 export default function Home() {
+
+ // check if user is loggied in, else render the sign in page
   const [loading, setLoading] = useState(true)
   const [authenticated, setAuthenticated] = useState(false)
 
