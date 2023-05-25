@@ -22,6 +22,7 @@ export default function AdoptionApplications(props) {
     const [showFullInfo, setShowFullInfo] = React.useState(false)
 
     const [acceptBtnClicked, setAcceptBtnClicked] = React.useState(false)
+    const [rejectBtnClicked, setRejectBtnClicked] = React.useState(false)
 
     const[currentApplicationID, setCurrentApplicationID] = React.useState("")
 
@@ -78,7 +79,20 @@ export default function AdoptionApplications(props) {
       return (
         <div className="flex justify-center">
           <Modal currentApplicationID={currentApplicationID}
-                  setAcceptBtnClicked={setAcceptBtnClicked}/>
+                  setAcceptBtnClicked={setAcceptBtnClicked}
+                  acceptBtnClicked={acceptBtnClicked}  
+                  />
+        </div>
+      )
+    }
+
+    if(rejectBtnClicked) {
+      return (
+        <div className="flex justify-center">
+          <Modal currentApplicationID={currentApplicationID}
+                  setRejectBtnClicked={setRejectBtnClicked}
+                  rejectBtnClicked={rejectBtnClicked}
+                  />
         </div>
       )
     }
@@ -134,6 +148,7 @@ export default function AdoptionApplications(props) {
                   setShowFullInfo={setShowFullInfo}
                   setCurrentApplicationID={setCurrentApplicationID}
                   setAcceptBtnClicked={setAcceptBtnClicked}
+                  setRejectBtnClicked={setRejectBtnClicked}
                 />
               ))}
               <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
