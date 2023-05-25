@@ -1,13 +1,26 @@
 import React from "react"
+import { db } from "@/firebaseConfig"
+import {doc, updateDoc } from "firebase/firestore"
+
+
 
 
 export default function Modal(props) {
-
     const {setAcceptBtnClicked, currentApplicationID} = props
+    
+    const adoptionApplicationRef = doc(db, "adoptionApplications", currentApplicationID)
 
-    const handleConfirmAccept = () => {
+
+    const handleConfirmAccept = async () => {
         setAcceptBtnClicked(false)
         // logic for updating db and sending email
+        try {
+            await updateDoc(adoptionApplicationRef, {
+                applicationStatus: "accepted"
+            })
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     const handleCancel = () => {

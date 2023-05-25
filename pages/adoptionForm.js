@@ -85,7 +85,8 @@ export default function AdoptionForm() {
             vetPermission:vetPermission,
             otherDetails:otherDetails,
             timeStamp: createNewTimeStamp(),
-            date: applicationDate
+            date: applicationDate,
+            status: "pending"
         })
     }
 
