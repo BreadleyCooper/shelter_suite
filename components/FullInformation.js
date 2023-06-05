@@ -5,7 +5,7 @@ import { db } from "@/firebaseConfig"
 
 export default function FullInformation(props) {
     
-    const {currentApplicationID, setShowFullInfo} = props
+    const {currentApplicationID, setShowFullInfo, setAcceptBtnClicked, setRejectBtnClicked} = props
     const [fullDetails, setFullDetails] = React.useState({})
 
     useEffect(() => {
@@ -25,6 +25,14 @@ export default function FullInformation(props) {
         fetchApplication();
         // update the request when the selected area changes
       }, []);
+
+    const handleAccept = () => {
+         setAcceptBtnClicked(true)
+    }
+
+    const handleReject = () => {
+        setRejectBtnClicked(true)
+    }
 
     return (
         <div className="grid py-4 max-w-7xl justify-center">
@@ -110,8 +118,8 @@ export default function FullInformation(props) {
                         {/* Footer */}
                         <div className="flex flex-row-reverse">
                             <button className="btn m-6" onClick={()=>setShowFullInfo(false) }>Close</button>
-                            <button className="btn btn-success bg-lime-500 m-6">Accept</button>
-                            <button className="btn btn-error bg-red-500 m-6">Reject</button>
+                            <button className="btn btn-success bg-lime-500 m-6" onClick={()=>handleAccept(true)}>Accept</button>
+                            <button className="btn btn-error bg-red-500 m-6" onClick={()=>handleReject  (true)}>Reject</button>
                         </div>
                     </div>
                  </div>  

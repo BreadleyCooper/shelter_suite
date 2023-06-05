@@ -101,7 +101,9 @@ export default function AdoptionApplications(props) {
       return (
         <div className="flex justify-center">
           <FullInformation currentApplicationID={currentApplicationID}
-                            setShowFullInfo={setShowFullInfo}/>
+                            setShowFullInfo={setShowFullInfo}
+                            setAcceptBtnClicked={setAcceptBtnClicked}
+                            setRejectBtnClicked={setRejectBtnClicked}/>
         </div>
       )
     }
