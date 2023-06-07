@@ -51,7 +51,7 @@ export default function AdoptionApplications(props) {
                 // Set a reference to the adoptionApplications collection.
                 const adoptionApplicationsRef = collection(db, "adoptionApplications")
                 // create a query to only match the area selected
-                const q = query(adoptionApplicationsRef, where ("area", "==", selectedArea))
+                const q = query(adoptionApplicationsRef, where ("area", "==", selectedArea), where("applicationStatus", "==", "pending"))
 
                 const querySnapshot = await getDocs(q);
                 const newData = [];
@@ -65,7 +65,7 @@ export default function AdoptionApplications(props) {
         };
         fetchApplications();
         // update the request when the selected area changes
-    }, [selectedArea])
+    }, [selectedArea, acceptBtnClicked, rejectBtnClicked])
 
     if (loading) {
       return <LoadingScreen />
