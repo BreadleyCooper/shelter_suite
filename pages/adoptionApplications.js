@@ -18,6 +18,7 @@ export default function AdoptionApplications(props) {
 
     const [applications, setApplications] = React.useState([])
     const [selectedArea, setSelectedArea] = React.useState("")
+    const [selectedStatus, setSelectedStatus] = React.useState("New")
     
     const [showFullInfo, setShowFullInfo] = React.useState(false)
 
@@ -50,9 +51,18 @@ export default function AdoptionApplications(props) {
             try {
                 // Set a reference to the adoptionApplications collection.
                 const adoptionApplicationsRef = collection(db, "adoptionApplications")
-                // create a query to only match the area selected
-                const q = query(adoptionApplicationsRef, where ("area", "==", selectedArea), where("applicationStatus", "==", "pending"))
+                
+                // Create a base query to match the selected area.
+                let q = query(adoptionApplicationsRef, where("area", "==", selectedArea));
 
+                // Modify the query based on the selected status.
+                if (selectedStatus === "New") {
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "pending"));
+                  } else if (selectedStatus === "Accepted") {
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "accepted"));
+                  } else if (selectedStatus === "Rejected") {
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "rejected"));
+                  }
                 const querySnapshot = await getDocs(q);
                 const newData = [];
                 querySnapshot.forEach((doc) => {
@@ -65,7 +75,7 @@ export default function AdoptionApplications(props) {
         };
         fetchApplications();
         // update the request when the selected area changes
-    }, [selectedArea, acceptBtnClicked, rejectBtnClicked])
+    }, [selectedArea, selectedStatus, acceptBtnClicked, rejectBtnClicked])
 
     if (loading) {
       return <LoadingScreen />
@@ -111,17 +121,19 @@ export default function AdoptionApplications(props) {
     return (
         <div>
           <Header />
-
-          <Filter selectedArea={selectedArea} setSelectedArea={setSelectedArea} />
+          <div className="text-center my-4 text-accent text-3xl font-medium">Adoption Applications</div>
+          <Filter selectedArea={selectedArea} 
+                  setSelectedArea={setSelectedArea} 
+                  selectedStatus={selectedStatus}
+                  setSelectedStatus={setSelectedStatus}/>
 
           {/* If the no selected area, return choose an area, else return the selected area filtered applications */}
           {selectedArea === "" ? (
             <div className="text-center my-16 text-accent text-4xl font-medium">Select an Area to start</div>
           ) : (
             <>
-              <div className="divider before:bg-accent after:bg-accent text-accent">New Applications</div>
               {/* if no applications, show message, else render the list. */}
-              {applications.length === 0 && (<div className="text-center my-16 text-accent text-4xl font-medium">No New Applications in {selectedArea}</div>)}
+              {applications.length === 0 && (<div className="text-center my-16 text-accent text-4xl font-medium">No {selectedStatus} Applications in {selectedArea}</div>)}
               
               {/* Render the list of applications */}
               {applications.map((application) => (
@@ -153,7 +165,6 @@ export default function AdoptionApplications(props) {
                   setRejectBtnClicked={setRejectBtnClicked}
                 />
               ))}
-              <div className="divider before:bg-accent after:bg-accent text-accent">Closed Applications</div>
             </>
           )}
         </div>

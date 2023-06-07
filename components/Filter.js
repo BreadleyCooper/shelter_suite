@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Filter(props) {
 
-    const {selectedArea, setSelectedArea} = props
+    const {selectedArea, setSelectedArea, selectedStatus, setSelectedStatus} = props
 
     return (
         <div className="filterContainer flex justify-evenly my-6">
@@ -19,10 +19,11 @@ export default function Filter(props) {
                 <option value={"Wales"}>Wales</option>
             </select>
 
-            <select className="select max-w-xs flex flex-inital" >
+            <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="select max-w-xs flex flex-inital" >
                 <option disabled value={""}>Status</option>
                 <option>New</option>
-                <option>Closed</option>
+                <option>Accepted</option>
+                <option>Rejected</option>
 
             </select>
 
