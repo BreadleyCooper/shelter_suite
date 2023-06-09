@@ -159,6 +159,7 @@ export default function AdoptionApplications(props) {
                   type={application.type}
                   vaccinated={application.vaccinated}
                   date={application.date}
+                  status={application.applicationStatus}
                   setShowFullInfo={setShowFullInfo}
                   setCurrentApplicationID={setCurrentApplicationID}
                   setAcceptBtnClicked={setAcceptBtnClicked}

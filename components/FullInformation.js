@@ -118,8 +118,22 @@ export default function FullInformation(props) {
                         {/* Footer */}
                         <div className="flex flex-row-reverse">
                             <button className="btn m-6" onClick={()=>setShowFullInfo(false) }>Close</button>
-                            <button className="btn btn-success bg-lime-500 m-6" onClick={()=>handleAccept(true)}>Accept</button>
-                            <button className="btn btn-error bg-red-500 m-6" onClick={()=>handleReject  (true)}>Reject</button>
+                            {fullDetails.applicationStatus === "pending" && (
+                                <>
+                                    <button className="btn btn-success bg-lime-500 m-6" onClick={()=>handleAccept(true)}>Accept</button>
+                                    <button className="btn btn-error bg-red-500 m-6" onClick={()=>handleReject  (true)}>Reject</button>
+                                </>
+                            )}
+                            {fullDetails.applicationStatus === "accepted" && (
+                                <>
+                                    <button className="btn btn-error bg-red-500 m-6" onClick={()=>handleReject  (true)}>Reject</button>
+                                </>
+                            )}
+                            {fullDetails.applicationStatus === "rejected" && (
+                                <>
+                                    <button className="btn btn-success bg-lime-500 m-6" onClick={()=>handleAccept(true)}>Accept</button>
+                                </>
+                            )}
                         </div>
                     </div>
                  </div>  

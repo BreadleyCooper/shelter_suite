@@ -1,9 +1,9 @@
 import { Timestamp } from "firebase/firestore";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function AdoptionApplicationsCollapse(props) {
 
-    const {applicantName, dogName, firstName, lastName, address, postCode, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, date, setShowFullInfo, setCurrentApplicationID, id, setAcceptBtnClicked, setRejectBtnClicked} = props
+    const {applicantName, dogName, firstName, lastName, address, postCode, county, email, phone, sex, age, colour, registeredOwner, neutered, size, type, vaccinated, date, setShowFullInfo, setCurrentApplicationID, id, setAcceptBtnClicked, setRejectBtnClicked, status} = props
 
     const fullInformationClick = () => {
         setCurrentApplicationID(id)
@@ -19,6 +19,8 @@ export default function AdoptionApplicationsCollapse(props) {
         setCurrentApplicationID(id)
         setRejectBtnClicked(true)
     }
+
+
 
     return (
         <div>
@@ -58,8 +60,23 @@ export default function AdoptionApplicationsCollapse(props) {
                 </div>
                 <div className="col-start-3 p-4 flex flex-col justify-around">
                     <button onClick={()=>fullInformationClick()} className="btn btn-primary ">Full Information</button>
-                    <button onClick={()=>handleAccept()} className="btn btn-success bg-lime-500">Accept</button>
-                    <button onClick={()=>handleReject()} className="btn btn-error bg-red-500">Reject</button>
+                    {status ==="pending" && (
+                        <>
+                            <button onClick={()=>handleAccept()} className="btn btn-success bg-lime-500">Accept</button>
+                            <button onClick={()=>handleReject()} className="btn btn-error bg-red-500">Reject</button>
+                        </>
+                    )}
+                    {status === "accepted" && (
+                        <>
+                            <button onClick={()=>handleReject()} className="btn btn-error bg-red-500">Reject</button>
+                        </>
+                    )}
+
+                    {status=== "rejected" && (
+                        <>
+                            <button onClick={()=>handleAccept()} className="btn btn-success bg-lime-500">Accept</button>
+                        </>
+                    )}
                 </div>
                     
             </div>
