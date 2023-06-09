@@ -74,7 +74,7 @@ export default function AdoptionApplications(props) {
             }
         };
         fetchApplications();
-        // update the request when the selected area changes
+        // update the request when the selected area changes and refresh when accepted/rejected
     }, [selectedArea, selectedStatus, acceptBtnClicked, rejectBtnClicked])
 
     if (loading) {
