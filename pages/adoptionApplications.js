@@ -4,6 +4,7 @@ import AdoptionApplicationsCollapse from "@/components/AdoptionApplicationsColla
 import FullInformation from "@/components/FullInformation"
 import Filter from "@/components/Filter"
 import Modal from "@/components/Modal"
+import Refresh from "@/components/Refresh"
 import { app, db } from "@/firebaseConfig"
 import { useEffect } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -29,6 +30,8 @@ export default function AdoptionApplications(props) {
 
     const [loading, setLoading] = React.useState(true)
     const [authenticated, setAuthenticated] = React.useState(false)    
+
+    const [refreshClick, setRefreshClick] = React.useState(false)
  
     useEffect(() => {
       const auth = getAuth(app)
@@ -75,7 +78,7 @@ export default function AdoptionApplications(props) {
         };
         fetchApplications();
         // update the request when the selected area changes and refresh when accepted/rejected
-    }, [selectedArea, selectedStatus, acceptBtnClicked, rejectBtnClicked])
+    }, [selectedArea, selectedStatus, acceptBtnClicked, rejectBtnClicked, refreshClick])
 
     if (loading) {
       return <LoadingScreen />
@@ -122,6 +125,8 @@ export default function AdoptionApplications(props) {
         <div>
           <Header />
           <div className="text-center my-4 text-accent text-3xl font-medium">Adoption Applications</div>
+          <Refresh setRefreshClick={setRefreshClick} 
+                    refreshClick={refreshClick}/>
           <Filter selectedArea={selectedArea} 
                   setSelectedArea={setSelectedArea} 
                   selectedStatus={selectedStatus}
