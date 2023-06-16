@@ -5,7 +5,7 @@ export default function Refresh(props) {
 
     const {setRefreshClick, refreshClick} = props
 
-    // Changing state to fire the useEffect on refresh click
+    // Changing state to fire the db fetch useEffect on refresh click
     
     const handleClick = () => {
         if (refreshClick){
