@@ -13,7 +13,7 @@ export default function Modal(props) {
         // logic for updating db and sending email
         try {
             await updateDoc(adoptionApplicationRef, {
-                applicationStatus: "accepted"
+                status: "accepted"
             })
         } catch(error) {
             console.log(error)
@@ -25,7 +25,7 @@ export default function Modal(props) {
         // logic for updating db and sending email
         try {
             await updateDoc(adoptionApplicationRef, {
-                applicationStatus: "rejected"
+                status: "rejected"
             })
         } catch(error) {
             console.log(error)

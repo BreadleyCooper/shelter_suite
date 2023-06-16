@@ -21,7 +21,6 @@ export default function AdoptionApplicationsCollapse(props) {
     }
 
 
-
     return (
         <div>
             <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box my-5 mx-5">

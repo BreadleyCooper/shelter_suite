@@ -10,7 +10,7 @@ import { useEffect } from "react"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import Router from "next/router"
 
-import { collection, doc, getDocs , query, where} from "firebase/firestore"
+import { collection, doc, getDocs , query, where, orderBy} from "firebase/firestore"
 import LoadingScreen from "@/components/LoadingScreen"
 
 
@@ -60,11 +60,11 @@ export default function AdoptionApplications(props) {
 
                 // Modify the query based on the selected status.
                 if (selectedStatus === "New") {
-                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "pending"));
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("status", "==", "pending"));
                   } else if (selectedStatus === "Accepted") {
-                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "accepted"));
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("status", "==", "accepted"));
                   } else if (selectedStatus === "Rejected") {
-                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("applicationStatus", "==", "rejected"));
+                  q = query(adoptionApplicationsRef, where("area", "==", selectedArea), where("status", "==", "rejected"));
                   }
                 const querySnapshot = await getDocs(q);
                 const newData = [];
@@ -164,7 +164,7 @@ export default function AdoptionApplications(props) {
                   type={application.type}
                   vaccinated={application.vaccinated}
                   date={application.date}
-                  status={application.applicationStatus}
+                  status={application.status}
                   setShowFullInfo={setShowFullInfo}
                   setCurrentApplicationID={setCurrentApplicationID}
                   setAcceptBtnClicked={setAcceptBtnClicked}
