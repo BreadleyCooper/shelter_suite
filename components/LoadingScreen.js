@@ -1,8 +1,12 @@
 import React from "react"
-import { render } from "react-dom"
+
 
 export default function LoadingScreen() {
     return (
-        <div className="min-h-screen text-center">Loading...</div>
+        <div className="flex justify-center items-center">
+        <div className="min-h-screen text-center">Loading...
+            <span className="loading loading-spinner loading-lg"></span>
+        </div>
+        </div>
     )
 }

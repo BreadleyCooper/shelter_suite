@@ -4,14 +4,12 @@ import { useRef } from "react"
 
 import { collection, addDoc } from "firebase/firestore";
 import { serverTimestamp, Timestamp } from "firebase/firestore";
-import {doc , setDoc} from "firebase/firestore"
 import { db } from "@/firebaseConfig";
 import FormSubmissionSuccess from "@/components/FormSubmissionSuccess";
-import Link from "next/link";
 
-const adoptionApplicationsInstance = collection(db, "adoptionApplications")
-const dogsInstance = collection(db, "dogs")
-const peopleInstance = collection(db, "people")
+const adoptionApplicationsInstance = collection(db, "Organisations", "DaschundRescueUK", "adoptionApplications")
+const dogsInstance = collection(db, "Organisations", "DaschundRescueUK", "dogs")
+const peopleInstance = collection(db, "Organisations", "DaschundRescueUK", "people")
 
 
 
