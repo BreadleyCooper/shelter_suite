@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import Header from "@/components/Header";
-import MatchesCollapse from "@/components/MatchesCollapse";
+import MatchesDogCard from "@/components/MatchesDogCard";
+import MatchesPersonCard from "@/components/MatchesPersonCard"
 import Filter from "@/components/Filter";
 import LoadingScreen from "@/components/LoadingScreen";
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -37,7 +38,8 @@ export default function Matches() {
         <div>
             <Header />
             <Filter />
-            <MatchesCollapse />
+            <MatchesDogCard />
+            <MatchesPersonCard />
         </div>
         )
 }
